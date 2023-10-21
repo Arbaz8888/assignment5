@@ -1,16 +1,15 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass')); // Specify the Sass compiler
+var {src, dest, watch} = require('gulp');
+var sass = require('gulp-sass')(require('node-sass'));
+sass.compiler = require('node-sass');
 
-gulp.task('sass', function () {
-  return gulp.src('src/styles/main.scss') // Source Sass file(s)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('dist/css')); // Destination for compiled CSS
-});
+function css () {
+    return src('src/*.scss')
+        .pipe(sass())
+        .pipe(dest('dist/css'))
+}
 
-// Define the default Gulp task
-gulp.task('default', gulp.series('sass'));
+exports.default = function () {
+    watch('src/*.scss', css);
+};
 
-// Add a watch task if you want Gulp to watch for changes and recompile automatically
-gulp.task('watch', function () {
-  gulp.watch('src/styles/**/*.scss', gulp.series('sass'));
-});
+//exports.default = css;
