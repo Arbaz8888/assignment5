@@ -1,0 +1,220 @@
+body {
+	font-family: $font-family;
+	font-size: 1em;
+	line-height: 2em;
+	background: url($img-body-background) $white-color repeat-x;
+    margin: 0;
+}
+
+main {
+    width: 900px + 40px;
+    margin: 0px auto;
+    padding: 0px 10px;
+
+    figure {
+        @include setDimensions(400px, 190px);
+        float: left;
+        display: block;
+        margin: 0px;
+        background: url($img-company-logo) 0px 50px no-repeat;
+
+        @include largeSizeDeviceMediaStyle(959px) {
+            width:inherit;
+            height:140px;
+            float:none;
+            background-position:center;
+        }
+    
+        @include smallSizeDeviceMediaStyle(459px) {
+            background-size:contain;
+            height:100px;
+        }
+    }
+
+    header {
+        width: inherit;
+        clear: both;
+        text-align: center;
+        padding-top: 40px;
+        img {
+            max-width:100%;
+            height:auto;
+
+            @include mediumSizeDeviceMediaStyle(767px) {
+                margin-bottom:100px;
+            }
+            
+            @include smallSizeDeviceMediaStyle(459px) {
+                margin-bottom:80px;
+            }
+        }
+        h1 {
+            @include setHeadingsTagStyle($red-color, 100, 4em);
+            @include largeSizeDeviceMediaStyle(959px) {
+                font-size:3em;
+            }
+
+            @include mediumSizeDeviceMediaStyle(767px) {
+                font-size:2em;
+            }
+    
+            @include smallSizeDeviceMediaStyle(459px) {
+                &:first-child {
+                    font-size: 1.4em;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        h2 {
+            @include setHeadingsTagStyle($white-color, 900, 2.5em, 0, 70px);
+            @include largeSizeDeviceMediaStyle(959px) {
+                font-size:1.5em;
+            }
+    
+            @include mediumSizeDeviceMediaStyle(767px) {
+                font-size:1em;
+            }
+    
+            @include smallSizeDeviceMediaStyle(459px) {
+                font-size:1.4em;
+            }
+        }
+        h3 {
+            @include setHeadingsTagStyle($grey-color, 400, 2em, 0, 50px);
+            @include mediumSizeDeviceMediaStyle(767px) {
+                font-size:1.5em;
+            }
+            @include smallSizeDeviceMediaStyle(459px) {
+                color: $white-color;
+                font-size:1em;
+            }
+        }
+    }
+
+    @include largeSizeDeviceMediaStyle(959px) {
+		width: 768px;
+	}
+
+	@include mediumSizeDeviceMediaStyle(767px) {
+		width:460px;
+	}
+
+	@include smallSizeDeviceMediaStyle(459px) {
+		width:300px;
+	}
+}
+
+#headline {
+    @include setDimensions(100%, 130px);
+    background: $headline-color;
+    text-align:center;
+    margin:0 auto;
+
+    h1 {
+        color: $white-color;
+        font-size:2.5em;
+        font-weight:100;
+        padding-top:50px;
+        @include mediumSizeDeviceMediaStyle(767px) {
+			font-size:2em;
+			padding-top:50px;
+		}
+		@include smallSizeDeviceMediaStyle(459px) {
+			font-size:1.5em;
+			padding-top:30px;
+		}
+    }
+}
+
+#content {
+    width: 940px;
+    margin:  20px auto;
+
+    @include largeSizeDeviceMediaStyle(959px) {
+		width:inherit;
+	}
+
+    h3 {
+        color:$grey-color;
+        font-size:2em;
+        font-weight:400;
+        @include smallSizeDeviceMediaStyle(459px) {
+			font-size:1.6em;
+		}
+    }
+
+    #products {
+        width:460px;
+        float:left;
+        img {
+            float:left;
+            margin-right:20px;
+        }
+        article {
+            margin-bottom:40px;
+        }
+        h4 {
+            line-height: 1em;
+        }
+    }
+
+    #testimonials {
+        width:460px;
+        float:right;
+        @include largeSizeDeviceMediaStyle(959px) {
+			width:46%;
+			margin:0 2%;
+		}
+
+		@include mediumSizeDeviceMediaStyle(767px) {
+			width:96%;
+			margin:0 2%;
+			float:none;
+		}
+    }
+}
+
+.greybar {
+    @include setDimensions(100%, 90px);
+    background:#F5F6F6;
+    clear:both;
+    padding-top:30px;
+    @include smallSizeDeviceMediaStyle(459px) {
+		display:none;
+	}
+}
+
+footer {
+    @include setDimensions(100%, 120px);
+    background:$footer-background-color;
+    text-align:center;
+    color:$white-color;
+    padding-top:50px;
+
+    .social-media {
+        margin:0 auto;
+        width:165px;
+        div {
+            float:left;
+            margin-right:5px;
+            &.one {
+                background:url($img-social-media) 0 0;
+            }
+            &.two {
+                background:url($img-social-media) -38px 0;
+            }
+            &.three {
+                background:url($img-social-media) -76px 0;
+            }
+            &.four {
+                background:url($img-social-media) -114px 0;
+            }
+        }
+
+        a {
+            display:block;
+            @include setDimensions(36px, 36px);
+            text-indent:-9999px;
+        }
+    }
+}
